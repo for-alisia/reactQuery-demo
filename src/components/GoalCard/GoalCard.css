@@ -1,0 +1,8 @@
+.GoalCard-header {
+  display: flex;
+  align-items: center;
+}
+
+.GoalCard-header h2 {
+  margin-right: 1rem;
+}

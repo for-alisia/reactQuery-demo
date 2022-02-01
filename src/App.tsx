@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Controls from './components/Controls/Controls';
+import GoalsList from './components/GoalsList/GoalsList';
+import GoalCard from './components/GoalCard/GoalCard';
 import './App.css';
 
 function App() {
+  const [goalId, setGoalId] = useState<string | null>(null);
+
+  const goalSelectedHandler = (id: string | null) => {
+    setGoalId(id);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-goals-selection-section">
+        <h3>Choose goal to work with</h3>
+        <GoalsList onGoalSelected={goalSelectedHandler} />
+      </section>
+      <section className="App-goal-section">
+        {goalId ? <GoalCard goalId={goalId} /> : <p>Choose goal from the list</p>}
+      </section>
+      <section className="App-controls-section">
+        <Controls goalId={goalId} />
+      </section>
     </div>
   );
 }
