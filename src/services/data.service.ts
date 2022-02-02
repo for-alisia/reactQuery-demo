@@ -39,7 +39,7 @@ export class DataService {
     }
   }
 
-  static async createData(type: dataType, data: Goal | Task) {
+  static async createData(type: dataType, data: any) {
     try {
       const response = await fetch(`${baseAPIUrl}${type}.json`, {
         method: 'POST',

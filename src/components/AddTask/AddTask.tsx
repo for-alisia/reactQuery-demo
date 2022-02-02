@@ -22,12 +22,11 @@ const AddTask: React.FC<AddTaskProps> = ({ goalId }) => {
   const queryClient = useQueryClient();
 
   const createTask = useMutation(() => {
-    const newTask: Task = {
+    const newTask = {
       name,
       description,
       status: Status.NOT_STARTED,
       goalId,
-      id: new Date().toString(),
       subtasks: [],
     };
     return DataService.createData('tasks', newTask);
