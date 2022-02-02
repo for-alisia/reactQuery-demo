@@ -1,6 +1,4 @@
-import { Task } from './../types/task.type';
 import { baseAPIUrl } from '../utils/urls.const';
-import { Goal } from '../types/goal.type';
 
 type dataType = 'goals' | 'tasks' | 'subtasks';
 
